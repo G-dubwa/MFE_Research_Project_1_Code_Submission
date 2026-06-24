@@ -1,0 +1,10 @@
+# Recommended runtime: Google Colab GPU.
+# Colab usually provides most of these packages already.
+nbformat
+nbclient
+numpy
+pandas
+matplotlib
+scipy
+tensorflow
+torch
