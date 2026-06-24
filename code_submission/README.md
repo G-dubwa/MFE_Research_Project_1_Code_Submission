@@ -23,6 +23,8 @@ folders.
 
 This repository is the code-submission package only. It does not contain the LaTeX report source or Overleaf project files. The report is submitted separately. Some final report figures may have been renamed, copied, or manually selected for presentation; the primary reproducibility evidence here is the source notebooks, executed run folders, CSV outputs, logs, manifests and documentation.
 
+> **Important:** Run `01_reproduce_report_results.ipynb` from inside the complete `code_submission/` folder. Do not run the notebook as a standalone file without the rest of the repository. The runner uses relative paths to `requirements.txt`, `notebooks/source/` and `outputs/`, and will fail if those files are not available.
+
 ## Files Included
 
 ```text
@@ -121,11 +123,32 @@ This is documented in `docs/PROTOCOL_SUMMARY.md`.
 
 The standalone parameter-robustness source notebook is configured with `quick_run=False`, and the completed output archive includes the full report-grade robustness rerun outputs. See `docs/PARAMETER_ROBUSTNESS_REPRODUCTION_NOTE.md`.
 
-## Running in Google Colab
+## How to run the code submission in Google Colab
 
-The submitted package includes completed outputs, so rerunning is optional. If rerunning, use a GPU runtime.
+The orchestration notebook must be run with the **full code-submission folder available**, not as a standalone notebook. It relies on relative paths to the source notebooks, `requirements.txt`, and the output folders.
 
-The orchestration notebook `01_reproduce_report_results.ipynb` exposes its controls in the first code cell (`# 0. User controls`). The actual flag names in that cell are:
+The required folder structure is:
+
+```text
+code_submission/
+├── 01_reproduce_report_results.ipynb
+├── requirements.txt
+├── notebooks/
+│   └── source/
+│       ├── final_benchmark_comparison.ipynb
+│       ├── parameter_robustness_study.ipynb
+│       ├── transaction_cost_neural_hedging_extension.ipynb
+│       ├── heston_stock_option_neural_hedging_COS_obsvol_multiseed_corrected.ipynb
+│       └── ...
+└── outputs/
+    ├── source_runs/
+    ├── architecture_selection_multiseed/
+    └── ...
+```
+
+Do **not** open only `01_reproduce_report_results.ipynb` without the rest of the repository. The runner will not be able to find the source notebooks.
+
+The orchestration notebook exposes its controls in the first code cell (`# 0. User controls`). The actual flag names in that cell are:
 
 ```python
 RUN_MODE = "full_generation"  # "full_generation", "smoke", or "extract_only"
@@ -141,68 +164,105 @@ GLOBAL_SMOKE_MODE = (RUN_MODE == "smoke")
 
 `GLOBAL_SMOKE_MODE` is derived from `RUN_MODE` and is propagated into each source notebook's own quick-run flag. In smoke mode, the runner patches available quick-run flags in the source notebooks, including the Black--Scholes final benchmark `quick_run` flag, parameter robustness `quick_run`, transaction-cost `RUN_FULL`, and Heston `RUN_FULL` / `RUN_MULTI_SEED_HEADLINE` flags. Where a source notebook exposes a quick/smoke flag, smoke mode also collapses any internal multi-seed loop to a single representative seed (for example, the Heston notebook's `RUN_MULTI_SEED_HEADLINE` and the architecture-selection notebook's single `GLOBAL_SEED`).
 
-### Recommended smoke test
+### Option A: Run from Google Drive
 
-Use this when you only want to check that the orchestration pipeline does not break.
+1. Upload the full code-submission zip to Google Drive (e.g. `MFE_Research_Project_1_Code_Submission-main.zip`).
+2. Extract/unzip the folder in Google Drive. After extraction, it should contain:
 
-1. Upload or open the code submission folder in Google Drive.
-2. Open `code_submission/01_reproduce_report_results.ipynb` in Google Colab.
-3. Set `Runtime > Change runtime type > GPU`.
-4. In the first code cell, set:
+   ```text
+   MFE_Research_Project_1_Code_Submission-main/
+   └── code_submission/
+       ├── 01_reproduce_report_results.ipynb
+       ├── requirements.txt
+       ├── notebooks/
+       ├── outputs/
+       └── docs/
+   ```
+
+3. In Google Drive, navigate to `MFE_Research_Project_1_Code_Submission-main/code_submission/`.
+4. Open `01_reproduce_report_results.ipynb` with Google Colab.
+5. Set `Runtime > Change runtime type > GPU`.
+6. In the configuration cell near the top of the notebook, use the smoke-test settings:
+
+   ```python
+   RUN_MODE = "smoke"
+   RUN_ARCHITECTURE_MULTI_SEED_APPENDIX = False
+   ```
+
+7. Run all cells.
+
+The smoke test checks that the pipeline, paths, imports and output saving work. It is **not** expected to reproduce the final report-grade numerical values; it is only a pipeline-integrity check, not a replacement for the submitted full-result evidence.
+
+### Option B: Run by cloning the GitHub repository in Colab
+
+If using GitHub instead of uploading the zip, clone the full repository inside Colab first. Do not open the notebook directly from GitHub's web view without cloning the repo, because the relative source files will not be available.
+
+In a new Colab notebook:
 
 ```python
-RUN_MODE = "smoke"
-RUN_ARCHITECTURE_MULTI_SEED_APPENDIX = False
+from google.colab import drive
+drive.mount("/content/drive")
 ```
 
-5. Run all cells.
-6. Confirm that the notebook creates a new output folder/zip and that each enabled section completes without path or import errors.
+```bash
+%cd /content/drive/MyDrive
+!git clone <REPOSITORY_URL>
+```
 
-The smoke test is not expected to reproduce the final report numbers exactly. It is only a pipeline-integrity check. For submission checking, a one-seed smoke test is sufficient to verify that the orchestration notebook, paths, imports and output-saving logic work. It should not be treated as a replacement for the submitted full-result evidence. The report-grade evidence is the completed extracted output folders under `outputs/source_runs/` plus the three-seed architecture evidence under `outputs/architecture_selection_multiseed/`.
+Then open the orchestration notebook from the cloned folder:
+
+```text
+<repo-name>/code_submission/01_reproduce_report_results.ipynb
+```
+
+Set the same smoke-test settings as above and run all cells.
+
+### Where outputs are saved
+
+When run in Colab, the notebook saves outputs to Google Drive by default, under:
+
+```text
+MyDrive/MFE_neural_hedging_report_outputs/
+```
+
+with subfolders:
+
+```text
+MyDrive/MFE_neural_hedging_report_outputs/source_notebooks/
+MyDrive/MFE_neural_hedging_report_outputs/source_runs/
+MyDrive/MFE_neural_hedging_report_outputs/collected_outputs/
+MyDrive/MFE_neural_hedging_report_outputs/results/
+MyDrive/MFE_neural_hedging_report_outputs/figures/
+MyDrive/MFE_neural_hedging_report_outputs/logs/
+MyDrive/MFE_neural_hedging_report_outputs/zips/
+```
+
+The final generated zip is saved under `MyDrive/MFE_neural_hedging_report_outputs/zips/`.
 
 ### Full rerun
 
-Use this only if you want to regenerate report-grade outputs.
+The submitted package already contains completed output evidence under `outputs/source_runs/` and `outputs/architecture_selection_multiseed/`, so a full rerun is optional. To attempt one, use:
 
 ```python
 RUN_MODE = "full_generation"
 RUN_ARCHITECTURE_MULTI_SEED_APPENDIX = False
 ```
 
-The full run is computationally expensive and may take several hours on a Colab GPU. Exact bitwise reproducibility is not guaranteed because GPU training and notebook execution can be nondeterministic. Use approximate agreement with the reported headline values, not exact figures.
+The full run is computationally expensive and may take several hours on a Colab GPU. Exact bitwise reproducibility is not guaranteed because GPU training and notebook execution can be nondeterministic. Check regenerated values for approximate agreement with the submitted outputs rather than exact equality.
 
 ### Optional architecture multi-seed rerun
 
-The multi-seed architecture-selection evidence used in the report is already supplied under:
-
-```text
-outputs/architecture_selection_multiseed/
-```
-
-Only set:
+The multi-seed architecture-selection evidence used in the report is already supplied under `outputs/architecture_selection_multiseed/`. Only set:
 
 ```python
 RUN_ARCHITECTURE_MULTI_SEED_APPENDIX = True
 ```
 
-if you deliberately want to regenerate the three-seed architecture-selection run. This is not required for a normal smoke test, and the rerun will not necessarily reproduce the submitted CSV/JSON values exactly (see the reproducibility note below).
+if you deliberately want to regenerate the three-seed architecture-selection run. This is **not** required for a normal smoke test, and a fresh rerun will not necessarily reproduce the submitted CSV/JSON values exactly.
 
-### Reproduction mechanics
+### Inspecting results without rerunning
 
-1. Open `01_reproduce_report_results.ipynb` in Google Colab.
-2. Set `Runtime > Change runtime type > GPU`.
-3. Set the controls in the first code cell as described above.
-4. Run all cells.
-5. Authorize Google Drive if prompted.
-6. Wait for the final output zip.
-7. Inspect `source_runs/` or the final zip created by the notebook.
-
-Google Drive saving is controlled inside the notebook. The default runner saves
-outputs into an organised local runtime folder and, when enabled, into:
-
-```text
-MyDrive/MFE_neural_hedging_report_outputs/
-```
+To inspect the submitted numerical evidence without rerunning the notebooks, use `outputs/source_runs/` for the main completed experiments and `outputs/architecture_selection_multiseed/` for the three-seed architecture-selection evidence (see Quick Start above). The original zipped copies are retained only as backups under `outputs/_archives/`; the extracted folders are the preferred inspection route.
 
 ## Expected Runtime and Hardware
 

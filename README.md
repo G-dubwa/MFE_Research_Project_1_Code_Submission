@@ -18,6 +18,8 @@ The main Colab entry notebook is:
 code_submission/01_reproduce_report_results.ipynb
 ```
 
+Run it from inside the full `code_submission/` folder, not as a standalone file — see "How to run the code submission in Google Colab" in `code_submission/README.md` for upload/clone instructions, runtime settings, and smoke-test flags.
+
 The completed run outputs are included under:
 
 ```text
