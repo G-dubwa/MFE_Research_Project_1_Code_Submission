@@ -1,0 +1,16 @@
+Heston COS multi-seed headline robustness check
+================================================
+
+Seeds: [111, 222, 333]
+Path sizes per seed: train=100000, val=25000, test=100000
+Information setting: observable EWMA variance
+
+Main pairwise finding:
+Stock + option NN vs BS-proxy Greeks on COS option path: mean RMSE improvement = 26.62%, min = 22.43%, max = 29.35%, RMSE wins = 3/3.
+Stock + option NN vs Heston COS delta-vega benchmark: mean RMSE improvement = 50.76%, RMSE wins = 3/3.
+Stock + option NN vs stock-only tanh NN: mean RMSE improvement = 57.35%, RMSE wins = 3/3.
+
+Reporting guidance:
+- Use the BS-proxy-Greeks-on-COS-path row as the strongest analytic heuristic comparison.
+- Use the Heston COS delta-vega row as the primary model-consistent local Greek benchmark.
+- Do not claim dominance over the unknown finite-grid MSE-optimal Heston hedge.

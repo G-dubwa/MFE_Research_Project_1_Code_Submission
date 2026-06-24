@@ -1,0 +1,22 @@
+{
+  "seeds_used": [
+    2026,
+    2027,
+    2028
+  ],
+  "selection_criterion": "mean validation loss across seeds",
+  "winner": "shared_norm_64u_3L_tanh_sigmoid",
+  "winner_val_loss_mean": 6.078466666666667e-05,
+  "winner_val_loss_std": 7.473582362785135e-07,
+  "winner_test_rmse_mean": 0.007891333333333334,
+  "winner_test_rmse_std": 2.173323108360382e-05,
+  "runner_up": "shared_norm_32u_3L_tanh_sigmoid",
+  "runner_up_val_loss_mean": 6.1048e-05,
+  "margin_val_loss": -2.6333333333333476e-07,
+  "pooled_std_val_loss": 9.17624469304665e-07,
+  "per_seed_winners": {
+    "2026": "shared_norm_64u_3L_tanh_sigmoid",
+    "2027": "shared_norm_64u_3L_tanh_sigmoid",
+    "2028": "shared_norm_64u_2L_relu_sigmoid"
+  }
+}

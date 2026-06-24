@@ -1,0 +1,13 @@
+\begin{table}
+\caption{Comparison of data generation methods for neural hedge training. All models use the 64$\times$3 tanh/sigmoid shared Markov MLP trained for a maximum of 100 epochs on 100,000 paths. OTM: $S_T < 0.85K$; ATM: $0.95K \leq S_T \leq 1.05K$; ITM: $S_T > 1.15K$. All methods evaluated on the same fixed test set of 100,000 crude Monte Carlo paths.}
+\label{tab:data_generation}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+Method & RMSE & CVaR95 & CVaR99 & HE q01 & RMSE OTM & RMSE ATM & RMSE ITM & Best epoch & Runtime (s) \\
+\midrule
+Crude MC & 0.008000 & 0.018480 & 0.026964 & -0.021799 & 0.006446 & 0.011953 & 0.005880 & 99 & 17.800000 \\
+Sobol & 0.008005 & 0.018596 & 0.027100 & -0.021949 & 0.006459 & 0.011950 & 0.005842 & 100 & 17.800000 \\
+Sobol + BB & 0.007973 & 0.018451 & 0.026913 & -0.021770 & 0.006497 & 0.011896 & 0.005838 & 100 & 17.700000 \\
+\bottomrule
+\end{tabular}
+\end{table}

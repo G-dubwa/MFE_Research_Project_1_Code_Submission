@@ -1,0 +1,4 @@
+Comparison,RMSE improvement (%),Loss CVaR95 improvement (%)
+Stock + option NN vs stock-only NN,57.1312071675256,58.1519608661131
+Stock + option NN vs BS proxy stock delta,62.876298211313475,63.472655003369574
+Stock + option NN vs Heston delta-vega,49.791137079883185,48.85749222833818

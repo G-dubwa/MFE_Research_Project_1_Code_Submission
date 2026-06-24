@@ -13,17 +13,13 @@ This notebook is a patched version of Micaela's `architecture_selection_multisee
 
 ## Recommended report use
 
-Use this only as an appendix robustness check. The main architecture-selection section can remain unchanged if the protocol-matched multi-seed results show that the selected shared normalized 64x3 tanh sigmoid model remains competitive.
+This three-seed run is now the active main architecture-selection evidence for the report (see `docs/PROVENANCE_GAPS.md`). The completed evidence from running this notebook is included under `outputs/architecture_selection_multiseed/`: `seed_2026_results.csv`, `seed_2027_results.csv`, `seed_2028_results.csv`, `multiseed_summary_numeric.csv`, `multiseed_summary_formatted.csv`, and `selection_result.json`.
 
-The completed archive currently does not include executed outputs from this
-notebook. If the final report uses the three-seed table as the active main
-architecture-selection table, the archive must first be updated with the actual
-executed output folder, for example
-`source_runs/01b_architecture_selection_multiseed_protocol_matched/`.
+Per `selection_result.json`, the winner by lowest mean validation loss across the three seeds is `shared_norm_64u_3L_tanh_sigmoid`, with `shared_norm_32u_3L_tanh_sigmoid` as the closest competitor by mean validation loss. Per-seed winners are `shared_norm_64u_3L_tanh_sigmoid` for seeds 2026 and 2027, and `shared_norm_64u_2L_relu_sigmoid` for seed 2028.
 
 A safe wording is:
 
-> Across three independent seeds, the shared normalized MLP architectures remain the leading family. The selected 64x3 tanh sigmoid model and the 64x2 ReLU sigmoid competitor achieve similar error levels, so the architecture choice is interpreted as selecting a reliable representative architecture rather than identifying a unique global optimum.
+> Across three independent seeds, the shared normalized MLP architectures remain the leading family. The selected 64x3 tanh sigmoid model and its closest competitors achieve similar error levels, so the architecture choice is interpreted as selecting a reliable representative architecture rather than identifying a unique global optimum.
 
 ## Runtime note
 

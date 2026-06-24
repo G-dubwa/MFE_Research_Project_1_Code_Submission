@@ -12,6 +12,7 @@ This package is the cleaned final code-submission candidate after incorporating 
 4. Ensured `notebooks/source/parameter_robustness_study.ipynb` is configured with `quick_run=False` by default.
 5. Replaced the old parameter-robustness completed-output trace with the full rerun outputs from 24 June 2026.
 6. Rebuilt the completed-output archive as `outputs/source_runs-20260624Tfinal-v7.zip`.
+7. Extracted `source_runs-20260624Tfinal-v7.zip` into `outputs/source_runs/` and `arch_selection_results.zip` into `outputs/architecture_selection_multiseed/` so the marker can browse the result folders directly; moved both original zips into `outputs/_archives/` as backup copies.
 
 ## Parameter robustness verification
 
@@ -28,12 +29,6 @@ The NN/DT RMSE ratio ranges from approximately 1.009 to 1.099, with mean approxi
 
 ## Remaining caveat
 
-The optional architecture multi-seed appendix notebook is included as supplementary evidence only and is disabled by default because it is computationally expensive. It should not replace the main architecture-selection table unless the report is deliberately rewritten around the appendix evidence.
+The report uses the protocol-matched three-seed architecture-selection table as the active main architecture-selection table. The completed multi-seed evidence (per-seed CSVs, summary CSVs, `selection_result.json`) is included under `outputs/architecture_selection_multiseed/`, extracted from `outputs/_archives/arch_selection_results.zip`. The master runner's `RUN_ARCHITECTURE_MULTI_SEED_APPENDIX` flag remains `False` by default since this evidence does not need to be regenerated to inspect or grade it; set it to `True` only to independently rerun the three-seed notebook.
 
-If the report has been rewritten to use the protocol-matched three-seed
-architecture-selection table as the active main architecture table, this package
-needs one additional provenance update before final submission: add the actual
-executed multi-seed outputs under
-`source_runs/01b_architecture_selection_multiseed_protocol_matched/` in the
-completed archive. The current archive contains the source notebook but not the
-completed multi-seed evidence.
+This evidence does not include a separately saved executed notebook or output manifest specific to this run (unlike the other completed-run sections). See the caveat in `docs/PROVENANCE_GAPS.md` if full executed-notebook provenance for this specific run is required.

@@ -1,0 +1,28 @@
+File,Use
+heston_delta_vega_outputs/heston_revised_results_fair_premium.csv,Main fair-premium results table
+heston_delta_vega_outputs/heston_revised_results_raw_premium.csv,Raw/as-trained premium diagnostics
+heston_delta_vega_outputs/heston_proxy_option_drift_diagnostics.csv,Proxy option drift diagnostic
+heston_delta_vega_outputs/heston_revised_improvement_summary.csv,Improvement and parametrization-confound summary
+heston_delta_vega_outputs/heston_eta_saturation_diagnostics.csv,Option-position rail saturation diagnostic
+heston_delta_vega_outputs/heston_delta_vega_clip_sensitivity.csv,Wider-clip sensitivity for Heston COS delta-vega benchmark
+heston_delta_vega_outputs/heston_delta_vega_clip_saturation.csv,Clip-binding diagnostic for primary and wider Heston COS delta-vega benchmarks
+heston_delta_vega_outputs/heston_delta_vega_clip_sensitivity_note.txt,Suggested reporting interpretation for clip sensitivity
+heston_delta_vega_outputs/heston_same_path_bs_proxy_delta_vega_fair.csv,"Same-path diagnostic: old BS-proxy delta-vega rule, fair-premium evaluation"
+heston_delta_vega_outputs/heston_same_path_bs_proxy_delta_vega_raw.csv,"Same-path diagnostic: old BS-proxy delta-vega rule, raw-premium evaluation"
+heston_delta_vega_outputs/heston_same_path_bs_proxy_option_drift.csv,Same-path diagnostic: BS-proxy vs COS liquid-option drift
+heston_delta_vega_outputs/heston_same_path_bs_proxy_eta_saturation.csv,"Same-path diagnostic: option-position saturation for BS proxy, COS benchmark, and NN"
+heston_delta_vega_outputs/heston_same_path_bs_proxy_comparison_summary.csv,Same-path diagnostic: proxy/COS benchmark comparison against stock+option NN
+heston_delta_vega_outputs/heston_same_path_bs_proxy_reconciliation_note.txt,Suggested reporting guidance for same-path BS-proxy diagnostic
+heston_delta_vega_outputs/heston_multiseed_headline_fair.csv,Multi-seed fair-premium results for headline Heston COS comparisons
+heston_delta_vega_outputs/heston_multiseed_training_diagnostics.csv,Multi-seed neural training diagnostics
+heston_delta_vega_outputs/heston_multiseed_pairwise_improvements.csv,Per-seed pairwise improvements against stock-only and analytic benchmarks
+heston_delta_vega_outputs/heston_multiseed_headline_summary.csv,Multi-seed mean/std/min/max headline summary
+heston_delta_vega_outputs/heston_multiseed_pairwise_summary.csv,Multi-seed pairwise summary for report wording
+heston_delta_vega_outputs/heston_multiseed_report_note.txt,Text summary for Heston COS report integration
+heston_delta_vega_outputs/heston_revised_rmse_bar.png,Main RMSE figure
+heston_delta_vega_outputs/heston_revised_cvar95_bar.png,Main Loss CVaR95 figure
+heston_delta_vega_outputs/heston_revised_raw_mean_he_bar.png,Raw Mean HE diagnostic figure
+heston_delta_vega_outputs/heston_revised_option_position_by_variance.png,Vega interpretation diagnostic
+heston_delta_vega_outputs/heston_revised_hedge_error_histograms.png,Optional hedge-error histogram
+heston_delta_vega_outputs/heston_revised_stock_position_by_moneyness.png,Optional stock-position diagnostic
+heston_delta_vega_outputs/heston_revised_option_position_by_moneyness.png,Optional option-position diagnostic

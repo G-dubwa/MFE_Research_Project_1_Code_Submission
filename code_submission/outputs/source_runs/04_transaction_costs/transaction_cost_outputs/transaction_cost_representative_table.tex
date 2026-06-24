@@ -1,0 +1,11 @@
+\begin{tabular}{rlrrrrrrr}
+\toprule
+Cost rate (bps) & Strategy & Premium & RMSE & Mean HE & Loss VaR95 & Loss CVaR95 & Mean cost & Mean turnover \\
+\midrule
+10.000000 & Cost-aware NN & 0.168670 & 0.007907 & 0.000120 & 0.012797 & 0.018184 & 0.004449 & 4.448599 \\
+10.000000 & BS delta: cost-adjusted premium & 0.168597 & 0.007939 & 0.000003 & 0.013597 & 0.019285 & 0.004497 & 4.497364 \\
+10.000000 & BS no-trade band: eps=0 & 0.168597 & 0.007939 & 0.000003 & 0.013597 & 0.019285 & 0.004497 & 4.497364 \\
+10.000000 & NN trained at lambda=0 & 0.164327 & 0.009066 & -0.004262 & 0.017977 & 0.023754 & 0.004491 & 4.491154 \\
+10.000000 & BS delta: frictionless premium & 0.164111 & 0.009118 & -0.004483 & 0.018083 & 0.023771 & 0.004497 & 4.497364 \\
+\bottomrule
+\end{tabular}

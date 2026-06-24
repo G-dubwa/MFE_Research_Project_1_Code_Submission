@@ -1,0 +1,13 @@
+label,val_loss,test_rmse,learned_premium,runtime_s,seed
+shared_norm_16u_1L_tanh_sigmoid,0.00010291,0.01027,0.164143,75.7,2028
+shared_norm_16u_2L_tanh_sigmoid,6.4573e-05,0.008139,0.164173,80.6,2028
+shared_norm_32u_2L_tanh_sigmoid,6.3601e-05,0.008085,0.164143,84.6,2028
+shared_norm_32u_3L_tanh_sigmoid,6.0443e-05,0.007874,0.164119,89.6,2028
+shared_norm_64u_2L_tanh_sigmoid,6.2785e-05,0.008026,0.164112,94.1,2028
+shared_norm_64u_3L_tanh_sigmoid,6.0463e-05,0.007875,0.164163,101.7,2028
+shared_norm_64u_2L_relu_sigmoid,6.0143e-05,0.007855,0.164177,91.0,2028
+shared_norm_64u_2L_softplus_sigmoid,0.00017534,0.013304,0.164074,92.8,2028
+shared_raw_32u_2L_tanh_sigmoid,6.7417e-05,0.008312,0.164061,79.0,2028
+shared_raw_64u_2L_tanh_sigmoid,6.316e-05,0.008059,0.164103,94.1,2028
+time_sep_norm_8u_1L_tanh_sigmoid,6.5112e-05,0.008157,0.164079,722.1,2028
+time_sep_norm_16u_1L_tanh_sigmoid,6.3509e-05,0.008062,0.164102,751.0,2028

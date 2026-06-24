@@ -1,0 +1,4 @@
+Strategy,Clip scale,Max abs eta,Mean abs eta,Frac |eta| > 0.95*scale,Frac |eta| > 0.99*scale,Frac |eta| == scale (within 1e-6)
+"BS-proxy delta-vega diagnostic, primary [-5,5]",5.0,1.0414752960205078,0.36058247089385986,0.0,0.0,0.0
+"Heston COS delta-vega benchmark, primary [-5,5]",5.0,5.0,0.599541425704956,0.00069112,0.0006592,0.0006524
+Stock + option NN,5.0,1.1325932741165161,0.6093502044677734,0.0,0.0,0.0

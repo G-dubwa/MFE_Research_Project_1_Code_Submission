@@ -1,0 +1,18 @@
+\begin{table}
+\caption{Path count experiment: Crude Monte Carlo vs Sobol with Brownian bridge construction. All models use the 64$\times$3 tanh/sigmoid shared Markov MLP trained for a fixed 100 epochs. OTM: $S_T < 0.85K$; ATM: $0.95K \leq S_T \leq 1.05K$; ITM: $S_T > 1.15K$.}
+\label{tab:path_count}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Method & Paths & RMSE & CVaR95 & RMSE OTM & RMSE ATM & RMSE ITM & Best epoch & Runtime (s) \\
+\midrule
+Crude MC & 10000 & 0.013328 & 0.027356 & 0.013256 & 0.021844 & 0.009683 & 100 & 4.100000 \\
+Sobol + BB & 10000 & 0.015021 & 0.030095 & 0.015400 & 0.023821 & 0.011558 & 100 & 4.000000 \\
+Crude MC & 25000 & 0.009563 & 0.021500 & 0.007936 & 0.015175 & 0.006904 & 100 & 6.600000 \\
+Sobol + BB & 25000 & 0.009617 & 0.021614 & 0.007856 & 0.015175 & 0.007092 & 99 & 6.500000 \\
+Crude MC & 50000 & 0.008431 & 0.019302 & 0.006664 & 0.012883 & 0.006193 & 100 & 10.200000 \\
+Sobol + BB & 50000 & 0.008741 & 0.019998 & 0.006969 & 0.013497 & 0.006391 & 100 & 10.400000 \\
+Crude MC & 100000 & 0.008075 & 0.018617 & 0.006485 & 0.012091 & 0.005940 & 99 & 18.300000 \\
+Sobol + BB & 100000 & 0.007971 & 0.018481 & 0.006519 & 0.011890 & 0.005798 & 100 & 17.800000 \\
+\bottomrule
+\end{tabular}
+\end{table}

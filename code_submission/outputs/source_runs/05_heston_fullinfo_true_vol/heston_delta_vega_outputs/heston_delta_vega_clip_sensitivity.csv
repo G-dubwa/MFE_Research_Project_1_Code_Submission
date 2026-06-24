@@ -1,0 +1,3 @@
+Case,Strategy,Clip,Fair premium,RMSE,Loss CVaR95,Loss CVaR99,RMSE gap vs Stock+option NN,RMSE ratio vs Stock+option NN
+"Primary common bound [-5,5]",Heston delta-vega hedge (eta clipped 5),5.0,0.16486212611198425,0.014781570993363857,0.03325070068240166,0.046415526419878006,0.007355389650911093,1.9904672821363814
+"Sensitivity wider bound [-20,20]","Heston delta-vega hedge (eta clipped 20, sensitivity)",20.0,0.16485966742038727,0.014667296782135963,0.03296792134642601,0.04561121389269829,0.007241115439683199,1.9750792642630997

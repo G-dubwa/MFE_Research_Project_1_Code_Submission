@@ -1,0 +1,13 @@
+Parameter,Value,Description
+$S_0$,1.0,Initial stock price
+$K$,0.9,Target option strike
+$T$,0.5,Target option maturity
+$r$,0.0,Risk-free rate
+$N$,125.0,Number of rebalancing dates
+$v_0$,0.16,Initial variance
+$\kappa$,2.0,Variance mean-reversion speed
+$\theta$,0.16,Long-run variance
+$\xi$,0.6,Volatility of variance
+$\rho$,-0.7,Spot/variance Brownian correlation
+$K_h$,1.0,Liquid hedging-option strike
+$T_h$,1.0,Liquid hedging-option maturity

@@ -1,0 +1,4 @@
+Strategy,Clip scale,Max abs eta,Mean abs eta,Frac |eta| > 0.95*scale,Frac |eta| > 0.99*scale,Frac |eta| == scale (within 1e-6)
+"Heston delta-vega benchmark, primary [-5,5]",5.0,5.0,0.599541425704956,0.00069112,0.0006592,0.0006524
+"Heston delta-vega benchmark, sensitivity [-20,20]",20.0,20.0,0.6046043038368225,0.00023472,0.00022968,0.0002284
+Stock + option NN,5.0,1.1325932741165161,0.6093502044677734,0.0,0.0,0.0

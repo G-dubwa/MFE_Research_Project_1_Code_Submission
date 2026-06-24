@@ -1,0 +1,13 @@
+Architecture,Val loss (mean ± std),Test RMSE (mean ± std),Learned premium (mean ± std),Mean runtime (s)
+shared_norm_16u_1L_tanh_sigmoid,1.1483e-04 ± 1.52e-05,0.010767 ± 6.52e-04,0.164127 ± 5.91e-05,75.4
+shared_norm_16u_2L_tanh_sigmoid,6.5446e-05 ± 8.31e-07,0.008186 ± 4.91e-05,0.164167 ± 1.63e-05,77.1
+shared_norm_32u_2L_tanh_sigmoid,6.4206e-05 ± 1.33e-06,0.008115 ± 7.41e-05,0.164119 ± 2.50e-05,82.0
+shared_norm_32u_3L_tanh_sigmoid,6.1048e-05 ± 1.06e-06,0.007911 ± 4.58e-05,0.164134 ± 3.10e-05,89.5
+shared_norm_64u_2L_tanh_sigmoid,6.2988e-05 ± 3.62e-07,0.008032 ± 8.14e-06,0.164128 ± 2.04e-05,92.0
+shared_norm_64u_3L_tanh_sigmoid,6.0785e-05 ± 7.47e-07,0.007891 ± 2.17e-05,0.164163 ± 1.85e-05,103.0
+shared_norm_64u_2L_relu_sigmoid,6.1129e-05 ± 8.67e-07,0.007912 ± 4.91e-05,0.164142 ± 4.90e-05,93.2
+shared_norm_64u_2L_softplus_sigmoid,1.9484e-04 ± 1.89e-05,0.013954 ± 6.17e-04,0.164141 ± 8.77e-05,94.4
+shared_raw_32u_2L_tanh_sigmoid,6.6877e-05 ± 5.57e-07,0.008271 ± 3.92e-05,0.164097 ± 6.67e-05,80.5
+shared_raw_64u_2L_tanh_sigmoid,6.5470e-05 ± 2.44e-06,0.008187 ± 1.37e-04,0.164058 ± 4.94e-05,92.5
+time_sep_norm_8u_1L_tanh_sigmoid,6.5451e-05 ± 6.72e-07,0.008170 ± 1.12e-05,0.164123 ± 3.86e-05,720.9
+time_sep_norm_16u_1L_tanh_sigmoid,6.4052e-05 ± 1.00e-06,0.008083 ± 2.95e-05,0.164090 ± 8.31e-05,786.9

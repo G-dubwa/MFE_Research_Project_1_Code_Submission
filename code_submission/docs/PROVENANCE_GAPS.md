@@ -1,40 +1,60 @@
-# Provenance Gaps To Resolve Before Final Report Submission
+# Provenance Gaps and Status
 
-This repository is structurally clean and contains the completed output archive:
+This repository is structurally clean and contains the completed output archives:
 
 ```text
-code_submission/outputs/source_runs-20260624Tfinal-v7.zip
+code_submission/outputs/_archives/source_runs-20260624Tfinal-v7.zip
+code_submission/outputs/_archives/arch_selection_results.zip
 ```
 
-The archive supports the original single-seed architecture-selection trace, the
-Black--Scholes final benchmark, the full parameter-robustness rerun, transaction
-costs, and the Heston full-information / observable-volatility runs.
+extracted for inspection into `code_submission/outputs/source_runs/` and
+`code_submission/outputs/architecture_selection_multiseed/` respectively.
 
-## Architecture Multi-Seed Evidence
+The main archive supports the original single-seed architecture-selection
+trace, the Black--Scholes final benchmark, the full parameter-robustness rerun,
+transaction costs, and the Heston full-information / observable-volatility
+runs.
 
-The source notebook is present:
+## Resolved: architecture-selection multi-seed evidence
+
+The original completed output archive did not contain the three-seed
+architecture-selection rerun. This has been resolved in the submitted package
+by including the multi-seed evidence separately under:
+
+```text
+code_submission/outputs/architecture_selection_multiseed/
+```
+
+This folder contains the three per-seed CSVs (`seed_2026_results.csv`,
+`seed_2027_results.csv`, `seed_2028_results.csv`), the numeric/formatted
+summary CSVs (`multiseed_summary_numeric.csv`,
+`multiseed_summary_formatted.csv`) and the selected-architecture JSON file
+(`selection_result.json`). The source notebook is:
 
 ```text
 code_submission/notebooks/source/architecture_selection_multiseed_protocol_matched.ipynb
 ```
 
-However, the completed-output archive does not currently contain an executed
-multi-seed architecture-selection output section such as:
+The selected architecture, `shared_norm_64u_3L_tanh_sigmoid`, has the lowest
+mean validation loss across the three seeds; the runner-up
+(`shared_norm_32u_3L_tanh_sigmoid`) is close, so the report describes this as a
+selected architecture rather than a dominant one.
+
+The original zips are retained only as archive copies under:
 
 ```text
-source_runs/01b_architecture_selection_multiseed_protocol_matched/
+code_submission/outputs/_archives/
 ```
 
-If the final report uses the three-seed architecture-selection table as the
-active main architecture table, this is a provenance gap. The repository should
-be updated with actual outputs from the executed notebook, including per-seed
-CSV files, summary CSV files, `selection_result.json`, the executed notebook,
-and an output manifest. These files must come from a real executed run, not from
-manual transcription of report values.
-
-Until those outputs are added, the included completed archive supports the
-original single-seed architecture-selection result only. The multi-seed notebook
-is reproducible source code, not completed evidence.
+**Remaining caveat:** the included evidence is the per-seed and summary
+CSV/JSON results of the multi-seed run. It does not include a separately
+saved executed notebook or output manifest specific to this run (unlike the
+other `source_runs/` sections, which each include an `executed_*.ipynb`
+copy). If full executed-notebook provenance for this specific run is required,
+rerun `architecture_selection_multiseed_protocol_matched.ipynb` (via
+`RUN_ARCHITECTURE_MULTI_SEED_APPENDIX = True` in the master runner, or
+standalone) and add the executed notebook and manifest alongside the existing
+CSV/JSON files.
 
 ## Parameter-Conditioned Table Consistency
 

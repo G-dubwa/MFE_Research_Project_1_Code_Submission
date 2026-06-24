@@ -1,0 +1,19 @@
+\begin{table}
+\caption{Out-of-sample robustness: RMSE of hedging error across strike $K$ and volatility $\sigma$. The neural hedge is evaluated without retraining (trained at $K=0.9$, $\sigma=0.4$, marked $\star$). BS delta and DT-optimal hedges are analytic and adapt automatically to each scenario.}
+\label{tab:robustness}
+\begin{tabular}{lllll}
+\toprule
+$K$ & $\sigma$ & BS Delta RMSE & DT-Optimal RMSE & Neural Hedge RMSE \\
+\midrule
+0.7 & 0.2 & 0.000492 & 0.000492 & 0.143308 \\
+0.7 & 0.4 & 0.004115 & 0.004114 & 0.166962 \\
+0.7 & 0.6 & 0.008108 & 0.008103 & 0.200019 \\
+0.9 & 0.2 & 0.003400 & 0.003399 & 0.048452 \\
+0.9 $\star$ & 0.4 $\star$ & 0.007811 & 0.007809 & 0.007840 \\
+0.9 & 0.6 & 0.011831 & 0.011824 & 0.056742 \\
+1.1 & 0.2 & 0.004026 & 0.004026 & 0.158329 \\
+1.1 & 0.4 & 0.009017 & 0.009017 & 0.126978 \\
+1.1 & 0.6 & 0.013690 & 0.013686 & 0.107204 \\
+\bottomrule
+\end{tabular}
+\end{table}

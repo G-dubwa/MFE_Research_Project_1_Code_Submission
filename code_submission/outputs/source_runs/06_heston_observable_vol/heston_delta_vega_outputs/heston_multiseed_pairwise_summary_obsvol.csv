@@ -1,0 +1,6 @@
+,RMSE improvement (%),RMSE improvement (%),RMSE improvement (%),RMSE improvement (%),Loss CVaR95 improvement (%),Loss CVaR95 improvement (%),Loss CVaR95 improvement (%),Loss CVaR95 improvement (%),NN beats competitor on RMSE,NN beats competitor on RMSE,NN beats competitor on Loss CVaR95,NN beats competitor on Loss CVaR95
+,mean,std,min,max,mean,std,min,max,mean,sum,mean,sum
+Comparison,,,,,,,,,,,,
+Stock + option NN vs BS-proxy Greeks on COS option path,26.616184577894533,3.6785412672199613,22.434870092349886,29.354238711585488,32.328835437999224,4.0412234289357825,27.66252581363541,34.687537652332516,1.0,3,1.0,3
+Stock + option NN vs Heston COS delta-vega benchmark,50.75525874940889,2.414070838246283,47.995107224906164,52.47284107961126,51.00077355671031,2.9378759881712364,47.61558998777527,52.88445295284416,1.0,3,1.0,3
+Stock + option NN vs Stock-only NN tanh delta,57.3506187941224,2.6037554701294807,54.366057212151276,59.15728258527771,60.13054050381416,2.685616965339239,57.09275176001816,62.1892664657175,1.0,3,1.0,3

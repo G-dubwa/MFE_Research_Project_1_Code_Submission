@@ -1,0 +1,15 @@
+Same-path BS-proxy delta-vega diagnostic
+=======================================
+
+This diagnostic re-evaluates the earlier frozen-volatility BS-proxy delta-vega rule
+on the same latest Heston path realisation used in the COS experiment.
+
+BS-proxy delta-vega on BS-proxy option path RMSE: 0.011516
+BS-proxy Greek rule on COS option path RMSE: 0.010725
+Heston COS delta-vega benchmark RMSE: 0.015945
+Stock + option NN RMSE: 0.008010
+
+Reporting guidance:
+- Treat the BS-proxy delta-vega rows as diagnostics / heuristics, not primary Heston-consistent benchmarks.
+- The primary model-consistent benchmark remains the Heston COS delta-vega benchmark.
+- If the BS-proxy diagnostic has lower RMSE, phrase this as possible approximation-error cancellation, not as evidence that the proxy is theoretically superior.

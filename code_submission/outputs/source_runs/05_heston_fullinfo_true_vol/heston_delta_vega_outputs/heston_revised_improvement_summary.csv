@@ -1,0 +1,6 @@
+Comparison,RMSE improvement (%),Loss CVaR95 improvement (%)
+Stock + option NN vs stock-only sigmoid NN,57.13492984876543,58.368270689275725
+Stock + option NN vs stock-only tanh NN,59.120441641465355,59.82449833548999
+Stock-only tanh NN vs stock-only sigmoid NN,-4.856979557572437,-3.6246657437526277
+Stock + option NN vs BS proxy stock delta,62.86404296663605,64.14152680134772
+Stock + option NN vs Heston delta-vega,49.76054070445742,50.00392687739751

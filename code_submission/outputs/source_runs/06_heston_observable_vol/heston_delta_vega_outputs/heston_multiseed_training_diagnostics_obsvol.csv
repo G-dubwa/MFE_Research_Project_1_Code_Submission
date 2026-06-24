@@ -1,0 +1,7 @@
+Seed,Strategy,best_val_loss,stopped_epoch
+111,Stock-only NN tanh delta,0.00032757624285295606,150
+111,Stock + option NN,6.821170973125845e-05,150
+222,Stock-only NN tanh delta,0.00035927866701968014,150
+222,Stock + option NN,5.974894520477392e-05,150
+333,Stock-only NN tanh delta,0.00033310760045424104,150
+333,Stock + option NN,5.806715853395872e-05,150

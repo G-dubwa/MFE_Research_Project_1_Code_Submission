@@ -1,0 +1,4 @@
+primary_clip_rmse: 0.014781570993363857
+wide_clip_rmse: 0.014667296782135963
+stock_option_nn_rmse: 0.0074261813424527645
+recommended_report_paragraph: Version A: wider-clip benchmark remains clearly above the NN; gap is not mainly a clipping artefact.
