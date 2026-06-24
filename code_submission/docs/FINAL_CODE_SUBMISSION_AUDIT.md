@@ -29,3 +29,11 @@ The NN/DT RMSE ratio ranges from approximately 1.009 to 1.099, with mean approxi
 ## Remaining caveat
 
 The optional architecture multi-seed appendix notebook is included as supplementary evidence only and is disabled by default because it is computationally expensive. It should not replace the main architecture-selection table unless the report is deliberately rewritten around the appendix evidence.
+
+If the report has been rewritten to use the protocol-matched three-seed
+architecture-selection table as the active main architecture table, this package
+needs one additional provenance update before final submission: add the actual
+executed multi-seed outputs under
+`source_runs/01b_architecture_selection_multiseed_protocol_matched/` in the
+completed archive. The current archive contains the source notebook but not the
+completed multi-seed evidence.

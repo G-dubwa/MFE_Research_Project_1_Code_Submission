@@ -15,6 +15,12 @@ This notebook is a patched version of Micaela's `architecture_selection_multisee
 
 Use this only as an appendix robustness check. The main architecture-selection section can remain unchanged if the protocol-matched multi-seed results show that the selected shared normalized 64x3 tanh sigmoid model remains competitive.
 
+The completed archive currently does not include executed outputs from this
+notebook. If the final report uses the three-seed table as the active main
+architecture-selection table, the archive must first be updated with the actual
+executed output folder, for example
+`source_runs/01b_architecture_selection_multiseed_protocol_matched/`.
+
 A safe wording is:
 
 > Across three independent seeds, the shared normalized MLP architectures remain the leading family. The selected 64x3 tanh sigmoid model and the 64x2 ReLU sigmoid competitor achieve similar error levels, so the architecture choice is interpreted as selecting a reliable representative architecture rather than identifying a unique global optimum.

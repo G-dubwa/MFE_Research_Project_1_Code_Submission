@@ -53,3 +53,4 @@ folder and the root README.
 | `code_submission/docs/RESULT_FILE_MAP.md` | Map from report claims to concrete output files |
 | `code_submission/docs/PROTOCOL_SUMMARY.md` | Batch-size and protocol notes |
 | `code_submission/docs/PARAMETER_ROBUSTNESS_REPRODUCTION_NOTE.md` | Parameter-robustness rerun settings and output note |
+| `code_submission/docs/PROVENANCE_GAPS.md` | Explicit gaps to resolve if the final report uses evidence beyond the completed archive |

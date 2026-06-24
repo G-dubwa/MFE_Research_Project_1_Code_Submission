@@ -113,3 +113,4 @@ Use this as appendix robustness evidence only. The main report architecture sect
 
 - `docs/PROTOCOL_SUMMARY.md`: explains why architecture selection uses batch size 256 while final selected-model retraining and extensions generally use batch size 4096.
 - `docs/PARAMETER_ROBUSTNESS_REPRODUCTION_NOTE.md`: records the final `quick_run=False` source patch and confirms the completed full robustness rerun outputs.
+- `docs/PROVENANCE_GAPS.md`: records known report/package consistency gaps if the final report uses results not present in the completed archive.

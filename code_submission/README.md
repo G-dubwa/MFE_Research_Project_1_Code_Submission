@@ -34,6 +34,7 @@ code_submission/
 │   ├── PROTOCOL_SUMMARY.md
 │   ├── PARAMETER_ROBUSTNESS_REPRODUCTION_NOTE.md
 │   ├── ARCHITECTURE_MULTI_SEED_APPENDIX.md
+│   ├── PROVENANCE_GAPS.md
 │   └── FINAL_CODE_SUBMISSION_AUDIT.md
 └── notebooks/
     └── source/
@@ -55,11 +56,15 @@ For inspection without rerunning the long experiments:
 4. Use `docs/PROTOCOL_SUMMARY.md` and
    `docs/PARAMETER_ROBUSTNESS_REPRODUCTION_NOTE.md` for protocol notes.
 5. Use `outputs/output_manifest_summary.csv` for a complete file listing.
+6. If the final report uses evidence beyond the completed archive, check
+   `docs/PROVENANCE_GAPS.md` before submission.
 
 
 ### Traceability note: architecture selection
 
 The architecture-selection executed notebook saved its detailed run folder to Google Drive during execution. To keep the submitted package self-contained, this package includes `source_runs/01_architecture_selection/architecture_selection_metrics_from_executed_notebook.csv`, extracted from the executed notebook logs. This file makes the architecture-selection table traceable without requiring a multi-hour rerun.
+
+The completed archive does not include a `source_runs/01b_architecture_selection_multiseed_protocol_matched/` output folder. If the final report uses the three-seed architecture-selection rerun as the active main architecture table, add the actual executed multi-seed outputs before submission. See `docs/PROVENANCE_GAPS.md`.
 
 
 ## Training-Protocol Summary
@@ -123,7 +128,9 @@ notebooks are not part of the final runner workflow.
 See `docs/RESULT_FILE_MAP.md` for a truthful map based on the actual completed
 run zip. See `docs/PROTOCOL_SUMMARY.md` and
 `docs/PARAMETER_ROBUSTNESS_REPRODUCTION_NOTE.md` for the batch-size protocol and
-parameter-robustness rerun note.
+parameter-robustness rerun note. See `docs/PROVENANCE_GAPS.md` for known
+report/package consistency issues that must be resolved if the final report uses
+evidence beyond the completed archive.
 
 Important folders inside the completed zip:
 
@@ -217,3 +224,8 @@ RUN_ARCHITECTURE_MULTI_SEED_APPENDIX = False
 ```
 
 Set this to `True` only if you want to regenerate the appendix table. The completed output zip supplied with this package does not include newly rerun protocol-matched multi-seed outputs because the notebook is optional and expensive.
+
+If the final report has promoted this three-seed table from appendix evidence to
+the active main architecture-selection table, this package is not yet
+provenance-complete until the executed multi-seed output folder is added to the
+completed archive.
