@@ -164,10 +164,26 @@ GLOBAL_SMOKE_MODE = (RUN_MODE == "smoke")
 
 `GLOBAL_SMOKE_MODE` is derived from `RUN_MODE` and is propagated into each source notebook's own quick-run flag. In smoke mode, the runner patches available quick-run flags in the source notebooks, including the Black--Scholes final benchmark `quick_run` flag, parameter robustness `quick_run`, transaction-cost `RUN_FULL`, and Heston `RUN_FULL` / `RUN_MULTI_SEED_HEADLINE` flags. Where a source notebook exposes a quick/smoke flag, smoke mode also collapses any internal multi-seed loop to a single representative seed (for example, the Heston notebook's `RUN_MULTI_SEED_HEADLINE` and the architecture-selection notebook's single `GLOBAL_SEED`).
 
-### Option A: Run from Google Drive
+Google Drive does not always provide a built-in one-click zip extraction option in the browser. The safest options are either to unzip the submission on your own computer and then upload the extracted folder to Drive, or to unzip the uploaded zip from within Colab using the short Python snippet below.
 
-1. Upload the full code-submission zip to Google Drive (e.g. `MFE_Research_Project_1_Code_Submission-main.zip`).
-2. Extract/unzip the folder in Google Drive. After extraction, it should contain:
+### Option A: Unzip locally, then upload the extracted folder to Google Drive
+
+This is the simplest method.
+
+1. Save the submitted zip file on your computer.
+
+   The file should be named something like:
+
+   ```text
+   MFE_Research_Project_1_Code_Submission-main.zip
+   ```
+
+2. Extract the zip on your computer.
+
+   - On macOS: double-click the zip file.
+   - On Windows: right-click the zip file and choose **Extract All**.
+
+3. After extraction, check that you have a folder like:
 
    ```text
    MFE_Research_Project_1_Code_Submission-main/
@@ -179,23 +195,87 @@ GLOBAL_SMOKE_MODE = (RUN_MODE == "smoke")
        └── docs/
    ```
 
-3. In Google Drive, navigate to `MFE_Research_Project_1_Code_Submission-main/code_submission/`.
-4. Open `01_reproduce_report_results.ipynb` with Google Colab.
-5. Set `Runtime > Change runtime type > GPU`.
-6. In the configuration cell near the top of the notebook, use the smoke-test settings:
+4. Upload the **entire extracted folder** `MFE_Research_Project_1_Code_Submission-main/` to Google Drive.
+5. In Google Drive, navigate to `MFE_Research_Project_1_Code_Submission-main/code_submission/`.
+6. Open `01_reproduce_report_results.ipynb` with Google Colab.
+7. Set `Runtime > Change runtime type > GPU`.
+8. In the configuration cell near the top of the notebook, use the smoke-test settings:
 
    ```python
    RUN_MODE = "smoke"
    RUN_ARCHITECTURE_MULTI_SEED_APPENDIX = False
    ```
 
-7. Run all cells.
+9. Run all cells.
 
 The smoke test checks that the pipeline, paths, imports and output saving work. It is **not** expected to reproduce the final report-grade numerical values; it is only a pipeline-integrity check, not a replacement for the submitted full-result evidence.
 
-### Option B: Run by cloning the GitHub repository in Colab
+### Option B: Upload the zip to Drive, then unzip it from within Colab
 
-If using GitHub instead of uploading the zip, clone the full repository inside Colab first. Do not open the notebook directly from GitHub's web view without cloning the repo, because the relative source files will not be available.
+This method is useful if you do not want to extract the zip locally.
+
+1. Upload the full zip file to the top level of Google Drive, i.e. `MyDrive`.
+
+   The expected path is:
+
+   ```text
+   MyDrive/MFE_Research_Project_1_Code_Submission-main.zip
+   ```
+
+2. Open any new Colab notebook.
+3. Mount Google Drive:
+
+   ```python
+   from google.colab import drive
+   drive.mount("/content/drive")
+   ```
+
+4. Unzip the submission into `MyDrive`:
+
+   ```python
+   import zipfile
+   from pathlib import Path
+
+   zip_path = Path("/content/drive/MyDrive/MFE_Research_Project_1_Code_Submission-main.zip")
+   extract_to = Path("/content/drive/MyDrive")
+
+   with zipfile.ZipFile(zip_path, "r") as z:
+       z.extractall(extract_to)
+
+   print("Extracted to:", extract_to)
+   ```
+
+5. Verify that the code-submission folder exists:
+
+   ```python
+   from pathlib import Path
+
+   repo_path = Path("/content/drive/MyDrive/MFE_Research_Project_1_Code_Submission-main/code_submission")
+   print("Found code_submission folder:", repo_path.exists())
+   print("Top-level files:", [p.name for p in repo_path.iterdir()][:10])
+   ```
+
+   This should print:
+
+   ```text
+   Found code_submission folder: True
+   ```
+
+6. In Google Drive, navigate to `MyDrive/MFE_Research_Project_1_Code_Submission-main/code_submission/`.
+7. Open `01_reproduce_report_results.ipynb` with Google Colab.
+8. Set `Runtime > Change runtime type > GPU`.
+9. In the configuration cell near the top of the notebook, use the smoke-test settings:
+
+   ```python
+   RUN_MODE = "smoke"
+   RUN_ARCHITECTURE_MULTI_SEED_APPENDIX = False
+   ```
+
+10. Run all cells.
+
+### Option C: Clone the repository inside Colab
+
+If using GitHub instead of uploading a zip, clone the full repository inside Colab first. Do not open the notebook directly from GitHub's web view without cloning the repo, because the relative source files will not be available.
 
 In a new Colab notebook:
 
