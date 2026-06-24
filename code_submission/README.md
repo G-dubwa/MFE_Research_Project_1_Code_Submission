@@ -139,7 +139,7 @@ RUN_HESTON_OBSVOL = True
 GLOBAL_SMOKE_MODE = (RUN_MODE == "smoke")
 ```
 
-`GLOBAL_SMOKE_MODE` is derived from `RUN_MODE` and is propagated into each source notebook's own quick-run flag (`SMOKE_TEST`, `quick_run`, or `RUN_FULL` / `RUN_MULTI_SEED_HEADLINE`, depending on the notebook). Where a source notebook exposes a quick/smoke flag, smoke mode also collapses any internal multi-seed loop to a single representative seed (for example, the Heston notebook's `RUN_MULTI_SEED_HEADLINE` and the architecture-selection notebook's single `GLOBAL_SEED`). The `final_benchmark_comparison.ipynb` source notebook does not expose its own quick-run flag, so smoke mode does not shorten that section; it will still run at full cost even in `RUN_MODE = "smoke"`.
+`GLOBAL_SMOKE_MODE` is derived from `RUN_MODE` and is propagated into each source notebook's own quick-run flag. In smoke mode, the runner patches available quick-run flags in the source notebooks, including the Black--Scholes final benchmark `quick_run` flag, parameter robustness `quick_run`, transaction-cost `RUN_FULL`, and Heston `RUN_FULL` / `RUN_MULTI_SEED_HEADLINE` flags. Where a source notebook exposes a quick/smoke flag, smoke mode also collapses any internal multi-seed loop to a single representative seed (for example, the Heston notebook's `RUN_MULTI_SEED_HEADLINE` and the architecture-selection notebook's single `GLOBAL_SEED`).
 
 ### Recommended smoke test
 

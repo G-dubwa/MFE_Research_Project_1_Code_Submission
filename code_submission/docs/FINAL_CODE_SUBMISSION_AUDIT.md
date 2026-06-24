@@ -11,7 +11,7 @@ This package is the cleaned final code-submission candidate after incorporating 
 3. Kept the optional protocol-matched architecture multi-seed notebook included but disabled by default in the master runner.
 4. Ensured `notebooks/source/parameter_robustness_study.ipynb` is configured with `quick_run=False` by default.
 5. Replaced the old parameter-robustness completed-output trace with the full rerun outputs from 24 June 2026.
-6. Rebuilt the completed-output archive as `outputs/source_runs-20260624Tfinal-v7.zip`.
+6. Rebuilt the completed-output archive, now retained as `outputs/_archives/source_runs-20260624Tfinal-v7.zip`.
 7. Extracted `source_runs-20260624Tfinal-v7.zip` into `outputs/source_runs/` and `arch_selection_results.zip` into `outputs/architecture_selection_multiseed/` so the marker can browse the result folders directly; moved both original zips into `outputs/_archives/` as backup copies.
 
 ## Parameter robustness verification
