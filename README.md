@@ -30,6 +30,8 @@ This package intentionally excludes old project material from the submission
 repository. The assessment-facing material is the curated `code_submission/`
 folder and the root README.
 
+Parts of the orchestration notebook and documentation were prepared with AI assistance (ChatGPT and Claude); see the "AI assistance disclosure" section in `code_submission/README.md`.
+
 ## Final Protocol Notes
 
 - Architecture selection and the optional multi-seed architecture appendix use

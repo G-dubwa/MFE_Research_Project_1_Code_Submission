@@ -19,6 +19,12 @@ manually selected for presentation. The authoritative reproducibility evidence i
 the regenerated CSV files, executed notebooks, logs, and manifests in the run
 folders.
 
+## AI assistance disclosure
+
+The orchestration notebook and parts of the repository documentation were prepared with assistance from ChatGPT and Claude. This assistance was used for code organisation, documentation drafting, reproducibility packaging, and repository cleanup.
+
+The underlying experiment design, interpretation of results, selection of reported findings, and final submission decisions remain the responsibility of the student authors. Numerical result files were not manually edited to alter reported outcomes.
+
 ## Report files
 
 This repository is the code-submission package only. It does not contain the LaTeX report source or Overleaf project files. The report is submitted separately. Some final report figures may have been renamed, copied, or manually selected for presentation; the primary reproducibility evidence here is the source notebooks, executed run folders, CSV outputs, logs, manifests and documentation.
