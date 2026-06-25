@@ -7,13 +7,14 @@
 | Architecture selection table | `outputs/architecture_selection_multiseed/multiseed_summary_numeric.csv` and `outputs/architecture_selection_multiseed/selection_result.json` |
 | Per-seed architecture-selection results | `outputs/architecture_selection_multiseed/seed_2026_results.csv`, `seed_2027_results.csv`, `seed_2028_results.csv` |
 | Black--Scholes final benchmark | `outputs/source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/` |
-| Parameter robustness and parameter-conditioned hedger | `outputs/source_runs/03_parameter_robustness_and_parameter_conditioning/` |
-| Transaction costs | `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/` |
+| Parameter robustness | `outputs/source_runs/03_parameter_robustness_and_parameter_conditioning/` |
+| Parameter-conditioned hedger table | `outputs/source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness_with_extrapolation.csv` |
+| Transaction-cost table | `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_compact_results.csv` |
 | Heston full-information COS experiment | `outputs/source_runs/05_heston_fullinfo_true_vol/heston_delta_vega_outputs/` |
 | Heston observable-volatility experiment | `outputs/source_runs/06_heston_observable_vol/heston_delta_vega_outputs/` |
 | Archived copies of original zips | `outputs/_archives/` |
 
-This map is based on the extracted output folders under `outputs/source_runs/` and `outputs/architecture_selection_multiseed/` (originally packaged as `outputs/_archives/source_runs-20260624Tfinal-v7.zip` and `outputs/_archives/arch_selection_results.zip`). It maps the main report claims to reproducibility outputs. Some generated figure filenames differ from final LaTeX figure filenames because the report may use renamed or presentation-ready copies. The primary reproducibility evidence is the CSV outputs and executed notebooks.
+This map is based on the extracted output folders under `outputs/source_runs/` and `outputs/architecture_selection_multiseed/` (originally packaged as `outputs/_archives/source_runs-20260624Tfinal-v7.zip` and `outputs/_archives/arch_selection_results.zip`). It maps the main report claims to reproducibility outputs. Some generated figure filenames differ from final LaTeX figure filenames because the report may use renamed or presentation-ready copies. The primary reproducibility evidence is the CSV outputs and executed notebooks. Report tables may round values for presentation; the CSV files contain the full-precision values.
 
 ## Completed Run Sections
 
@@ -48,7 +49,7 @@ Main files:
 - `source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/data_generation_comparison.csv`
 - `source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/collapse_compact.csv`
 - `source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness.csv`
-- `source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness_with_extrapolation.csv`
+- `outputs/source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness_with_extrapolation.csv`
 - `source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/average_delta_by_moneyness.csv`
 
 ### Robustness and parameter conditioning
@@ -59,22 +60,26 @@ Source notebook:
 The source notebook is configured for report-grade reruns with `quick_run=False`. The completed archive now includes the full 50k/15k/50k, 150-epoch robustness rerun outputs, including `parameter_robustness_nn_vs_benchmarks.csv`, `parameter_robustness_summary.csv`, `parameter_robustness_table.tex`, and robustness figures.
 
 Parameter-conditioned/generalization outputs from the final benchmark notebook are available under:
-- `source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness.csv`
-- `source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness_with_extrapolation.csv`
-- `source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/robustness_compact.csv`
-- `source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/robustness_rmse.csv`
+- `outputs/source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness.csv`
+- `outputs/source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness_with_extrapolation.csv`
+- `outputs/source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/robustness_compact.csv`
+- `outputs/source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/robustness_rmse.csv`
+
+The final report's parameter-conditioned hedger table maps to `outputs/source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness_with_extrapolation.csv`. Report values are rounded; the CSV contains full-precision values.
 
 ### Transaction costs
 
-Folder: `source_runs/04_transaction_costs/transaction_cost_outputs/`
+Folder: `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/`
 
 Main files:
-- `source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_compact_results.csv`
-- `source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_training_summary.csv`
-- `source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_notrade_band_selection.csv`
-- `source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_representative_table.csv`
-- `source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_rmse_vs_lambda.png`
-- `source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_cvar95_vs_lambda.png`
+- `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_compact_results.csv`
+- `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_training_summary.csv`
+- `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_notrade_band_selection.csv`
+- `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_representative_table.csv`
+- `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_rmse_vs_lambda.png`
+- `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_cvar95_vs_lambda.png`
+
+The final report's transaction-cost table maps to `outputs/source_runs/04_transaction_costs/transaction_cost_outputs/transaction_cost_compact_results.csv`. Report values are rounded; the CSV contains full-precision values.
 
 ### Heston full-information run
 

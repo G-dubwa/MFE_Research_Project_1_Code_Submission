@@ -5,8 +5,7 @@
 This folder is the code-submission package for the research project:
 
 ```text
-Neural Network Architectures for Option Hedging:
-Benchmarking under Black--Scholes and Extensions to Costs and Stochastic Volatility
+Deep Hedging under Black--Scholes and Heston Dynamics
 ```
 
 It is a reproducibility package for the numerical experiments. It shows which

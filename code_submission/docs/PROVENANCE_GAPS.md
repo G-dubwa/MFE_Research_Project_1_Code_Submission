@@ -15,7 +15,7 @@ trace, the Black--Scholes final benchmark, the full parameter-robustness rerun,
 transaction costs, and the Heston full-information / observable-volatility
 runs.
 
-## Resolved: architecture-selection multi-seed evidence
+## Architecture-Selection Provenance Note
 
 The original completed output archive did not contain the three-seed
 architecture-selection rerun. This has been resolved in the submitted package
@@ -46,31 +46,20 @@ The original zips are retained only as archive copies under:
 code_submission/outputs/_archives/
 ```
 
-**Remaining caveat:** the included evidence is the per-seed and summary
-CSV/JSON results of the multi-seed run. It does not include a separately
-saved executed notebook or output manifest specific to this run (unlike the
-other `source_runs/` sections, which each include an `executed_*.ipynb`
-copy). If full executed-notebook provenance for this specific run is required,
-rerun `architecture_selection_multiseed_protocol_matched.ipynb` (via
-`RUN_ARCHITECTURE_MULTI_SEED_APPENDIX = True` in the master runner, or
-standalone) and add the executed notebook and manifest alongside the existing
-CSV/JSON files.
+The included architecture-selection evidence is the submitted per-seed and
+summary CSV/JSON results of the multi-seed run. The optional source notebook is
+included and can be rerun if full executed-notebook provenance is required. The
+submitted CSV and JSON files are the active evidence for the report's
+architecture-selection table.
 
-## Parameter-Conditioned Table Consistency
+## Resolved: Parameter-Conditioned Table Consistency
 
-The completed archive contains the parameter-conditioned robustness exports:
+The final report table for the parameter-conditioned hedger has been updated to
+match the CSV values in:
 
 ```text
-source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness_with_extrapolation.csv
-source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness_with_extrapolation.tex
+outputs/source_runs/02_black_scholes_final_benchmark/final_benchmark_outputs/universal_robustness_with_extrapolation.csv
 ```
 
-If the final report table differs from these exports, use one source of truth:
-
-- Preferred: update the report table to match the exported CSV/TeX values.
-- Alternative: if a later executed notebook produced the report values, replace
-  the CSV/TeX exports with outputs regenerated from that executed notebook and
-  document the replacement in `RESULT_FILE_MAP.md`.
-
-Do not leave the report and exported evidence disagreeing.
-
+Values are reported in the PDF rounded to six decimal places. The code
+submission CSV remains the source of truth for the full-precision values.
